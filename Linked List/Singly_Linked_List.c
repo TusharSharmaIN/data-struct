@@ -208,3 +208,28 @@ void deleteAfter(Node** head, int num)
 		}
 	}
 }
+
+void sortList(Node** head)
+{
+	Node* ptr1 = *head;
+	Node* ptr2 = NULL;
+	int temp;
+	
+	while(ptr1->next)
+	{
+		ptr2 = ptr1->next;
+		
+		while(ptr2)
+		{
+			if(ptr1->data > ptr2->data)
+			{
+				temp = ptr1->data;
+				ptr1->data = ptr2->data;
+				ptr2->data = temp;
+			}
+			ptr2 = ptr2->next;
+		}
+		ptr1 = ptr1->next;
+	}
+}
+
